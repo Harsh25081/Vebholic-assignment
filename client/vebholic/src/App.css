@@ -1,0 +1,42 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  /* text-align: center; */
+}
+
+#outer{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.everyinvoice{
+  border: 2px solid black;
+  border-radius: 15px;
+  width: 200px;
+  margin: 5px;
+  padding: 5px;
+  /* background-color: aquamarine; */
+}
+
+#addbtn.everyinvoice{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 50px;
+  cursor: pointer;
+  border: 2px solid rgb(248, 113, 30);
+}
+
+#addbtn.everyinvoice:hover{
+  background-color: aquamarine;
+}
+
+.everyinvoice p {
+  margin: 5px;
+}
+
+.editP input{
+  width: 80px;
+}
