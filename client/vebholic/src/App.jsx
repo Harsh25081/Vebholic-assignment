@@ -20,7 +20,7 @@ function App() {
   })
 
   useEffect(() => {
-    axios.get("http://localhost:4005/getallinvoice")
+    axios.get("https://vebholic-assignment.vercel.app/getallinvoice")
       .then((res) => { console.log(res.data.data); setData({ ...data, AllData: res.data.data }) })
       .catch((err) => console.log(err))
   }, [])
@@ -62,7 +62,6 @@ function App() {
     else {
       setData({ ...data, EditInvoiceData: { ...data.EditInvoiceData, [name]: value } })
     }
-    // setData({ ...data, EditInvoiceData: { ...data.EditInvoiceData, [name]: value } })
   }
 
   const updateInvoice = (data) => {
@@ -70,7 +69,7 @@ function App() {
     console.log(data.EditInvoiceData)
     let { _id, Qty, Price, DiscountPer, Discount, TaxPer, Tax, TotalPrice } = data.EditInvoiceData
     let id = _id
-    axios.put(`http://localhost:4005/updateinvoice/${id}`, { Qty, Price, DiscountPer, Discount, TaxPer, Tax, TotalPrice })
+    axios.put(`https://vebholic-assignment.vercel.app/updateinvoice/${id}`, { Qty, Price, DiscountPer, Discount, TaxPer, Tax, TotalPrice })
       .then((res) => { console.log(res); window.location.reload() })
       .catch((err) => console.log(err))
   }
@@ -139,12 +138,7 @@ function App() {
                 {data.edit && data.EditInvoiceData._id == _id ? <p className='editP'><input name="TaxPer" defaultValue={TaxPer} type="Number" onBlur={UpdateDiscount} onChange={handleChange} /></p> : <p>: {TaxPer}</p>}
                 {data.edit && data.EditInvoiceData._id == _id ? <p className='editP'><input name="Tax" defaultValue={Tax} type="Number" onBlur={UpdateDiscount} onChange={handleChange} /></p> : <p>: {Tax}</p>}
                 {data.edit && data.EditInvoiceData._id == _id ? <p className='editP'><input name="TotalPrice" defaultValue={TotalPrice} type="Number" onChange={handleChange} /></p> : <p>: {TotalPrice}</p>}
-                {/* <p>: {Price}</p>
-                <p> : {DiscountPer}</p>
-                <p>: {Discount}</p>
-                <p> : {TaxPer}</p>
-                <p> : {Tax}</p>
-                <p> : {TotalPrice}</p> */}
+               
               </div>
             </div>
 
@@ -159,12 +153,3 @@ function App() {
 }
 
 export default App
-
-
-{/* <p>Qty         : {Qty}</p>
-            <p>Price       : {Price}</p>
-            <p>DiscountPer : {DiscountPer}</p>
-            <p>Discount    : {Discount}</p>
-            <p>TaxPer      : {TaxPer}</p>
-            <p>Tax         : {Tax}</p>
-            <p>TotalPrice  : {TotalPrice}</p> */}

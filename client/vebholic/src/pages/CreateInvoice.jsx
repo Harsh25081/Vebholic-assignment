@@ -77,7 +77,7 @@ export default function CreateInvoice() {
     }
 
     const createInvoice = (e,invoice)=>{
-        axios.post("http://localhost:4005/createinvoice",invoice)
+        axios.post("https://vebholic-assignment.vercel.app/createinvoice",invoice)
         .then((res)=>{navigate("/"),console.log(res.data.data)})
         .catch((err)=>console.log(err.message))
         e.preventDefault();
@@ -106,15 +106,3 @@ export default function CreateInvoice() {
         </div>
     )
 }
-
-        // if (name === "DiscountPer") {
-        //     let { Qty, Price } = invoice
-        //     let totalprice = Qty * Price
-        //     let discount = (totalprice * value) / 100
-        //     setInvoice({ ...invoice, Discount: discount })
-        // }else{
-        //     let { Qty, Price } = invoice
-        //     let totalprice = Qty * Price
-        //     let discountPer = (value*100)/totalprice
-        //     setInvoice({ ...invoice, DiscountPer: discountPer })
-        // }
